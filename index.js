@@ -8,7 +8,7 @@ require("dotenv").config();
 const menuRoutes = require("./api/routes/menuRoutes");
 
 // middleware
-app.use(cors());
+app.use(cors({ origin: "https://foodi-client-roan.vercel.app" }));
 app.use(express.json());
 
 // mongodb configuration using mongoose
@@ -21,6 +21,7 @@ mongoose
 // jwt authentication
 app.post("/jwt", async (req, res) => {
   const user = req.body;
+
   const userdata = await User.findOne(user);
 
   const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
