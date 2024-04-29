@@ -8,7 +8,7 @@ require("dotenv").config();
 const menuRoutes = require("./api/routes/menuRoutes");
 
 // middleware
-app.use(cors({ origin: "https://foodi-client-roan.vercel.app" }));
+app.use(cors());
 app.use(express.json());
 
 // mongodb configuration using mongoose
